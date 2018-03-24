@@ -9,6 +9,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+     <!-- restante omitido... -->
+     <developers>
+         <developer>
+             <name>Ismael Gomes</name>
+             <email>kleiderman.rock@gmail.com</email>
+         </developer>
+     </developers>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
