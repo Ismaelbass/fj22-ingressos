@@ -15,6 +15,8 @@ public class SalaDao {
 
     @PersistenceContext
     private EntityManager manager;
+    
+    
 
     public Sala findOne(Integer id) {
 
