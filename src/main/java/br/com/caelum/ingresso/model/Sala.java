@@ -3,15 +3,32 @@ package br.com.caelum.ingresso.model;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Created by nando on 03/03/17.
- */
+
+
 @Entity
 public class Sala {
+	
+	private BigDecimal preco;
 
+	public Sala(String nome, BigDecimal preco){
+		this.nome = nome;
+		this.preco = preco;
+	}
+	
+	public BigDecimal getPreco(){
+		return preco.setScale(2, RoundingMode.HALF_UP);
+	}
+	
+	public void setPreco(BigDecimal preco){
+		this.preco = preco;
+		
+	}
     @Id
     @GeneratedValue
     private Integer id;
