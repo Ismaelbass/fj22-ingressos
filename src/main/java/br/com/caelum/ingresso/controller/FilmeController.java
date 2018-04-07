@@ -12,9 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.util.Optional;
 
-/**
- * Created by nando on 03/03/17.
- */
+
 @Controller
 public class FilmeController {
 
@@ -23,18 +21,15 @@ public class FilmeController {
     private FilmeDao filmeDao;
 
 
-    @GetMapping({"/admin/filme", "/admin/filme/{id}"})
-    public ModelAndView form(@PathVariable("id") Optional<Integer> id, Filme filme){
+    @GetMapping({"filme/em-cartaz"})
+    public ModelAndView emCartaz(){
+    
 
-        ModelAndView modelAndView = new ModelAndView("filme/filme");
+        ModelAndView modelAndView = new ModelAndView("filme/em-cartaz");
 
-        if (id.isPresent()){
-            filme = filmeDao.findOne(id.get());
-        }
-
-        modelAndView.addObject("filme", filme);
-
-        return modelAndView;
+       ModelAndView.addObject("filmes", filmeDao.findAll());
+       
+       return modelAndView;
     }
 
 
